@@ -28,22 +28,22 @@ node('master')
        sh "${Mvnhome}/bin/mvn install"
    } 
 
-   /*stage ('Build image')
+   stage ('Build image')
    {
 
         print " Builing image started ... "
-        sh 'docker build -t anjidockerid/my_app:1.0 .'
-   }*/
+        sh 'docker build -t anjidockerid/springboot_docker:1.0 .'
+   }
 
-  /* stage ('Push Image to Docker Hub')
+   stage ('Push Image to Docker Hub')
    {
       print " Pushing images......"
       withCredentials([string(credentialsId: 'dockerhub_pwd', variable: 'docker_hubacc')]) {
          sh "docker login -u anjidockerid -p ${docker_hubacc}"
       }
       
-      sh 'docker push anjidockerid/my_app:1.0'
-   }*/
+      sh 'docker push anjidockerid/springboot_docker:1.0'
+   }
    
   /* stage ('Deplyoing to tomcat server..')
    {
