@@ -1,3 +1,3 @@
-From openjdk:8
-COPY employee-jdbc-0.0.1-SNAPSHOT.jar employee-jdbc-0.0.1-SNAPSHOT.jar
+FROM openjdk:12-alpine
+COPY ./target/employee-jdbc-0.0.1-SNAPSHOT.jar employee-jdbc-0.0.1-SNAPSHOT.jar
 CMD ["java","-jar","employee-jdbc-0.0.1-SNAPSHOT.jar"]
