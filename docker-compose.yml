@@ -2,8 +2,9 @@ version: "3"
 services:
   employee-jdbc:
     image: employee-jdbc
+    container_name: my_emp_app
     ports:
-      - "8080:8080"
+      - "7777:8080"
     networks:
       - employee-mysql
     depends_on:
@@ -11,11 +12,17 @@ services:
  
   mysqldb:
     image: mysql:8
+    container_name:my_sql_db
     networks:
       - employee-mysql
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=bootdb  
-
+      - MYSQL_DATABASE=bootdb 
+    ports:  
+      - "9999:3306"
+    volumes:
+      - my-db: /var/lib/mysql    
 networks:
   employee-mysql:
+volumes:
+  my-db:  
