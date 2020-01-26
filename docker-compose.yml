@@ -1,7 +1,7 @@
 version: "3"
 services:
   employee-jdbc:
-    image: employee-jdbc
+    image: anjidockerid/springboot_docker:1.0
     container_name: my_emp_app
     ports:
       - "7777:8080"
