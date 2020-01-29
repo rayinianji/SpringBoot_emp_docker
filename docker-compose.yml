@@ -12,17 +12,17 @@ services:
  
   mysqldb:
     image: mysql:8
-    container_name:my_sql_db
+    container_name: my_sql_db
     networks:
       - employee-mysql
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=bootdb 
     ports:  
-      - "9999:3306"
+      - "13306:3306"
     volumes:
-      - my-db: /var/lib/mysql    
+      - my-db:/var/lib/mysql    
 networks:
   employee-mysql:
 volumes:
-  my-db:  
+  my-db:
